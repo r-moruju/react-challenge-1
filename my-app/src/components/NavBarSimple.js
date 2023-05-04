@@ -11,14 +11,15 @@ class NavBarSimple extends React.Component {
     }
 
     handleClick() {
-        this.setState((prevState, prevProps) => {
-            console.log('Prev message:', prevState.message)
-            console.log('Prev button text:', prevState.button)
-            return{
+        this.setState((prevState, prevProps) => (
+            {
                 message: prevState.message === 'Hello guest!' ? 'Welcome beck, user' : 'Hello guest!',
                 button: prevState.button === 'Log in' ? 'Log out' : 'Log in'
             }
-        })
+        ), () => (
+            console.log(this.state.message),
+            console.log(this.state.button)
+        ))
     };
 
     render() {
